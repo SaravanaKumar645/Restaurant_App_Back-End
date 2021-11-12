@@ -1,5 +1,6 @@
 const Auth_Action = require("../methods/authActions");
 const methods = Auth_Action.functions;
+const menu = require("../methods/menuActions");
 const routes = [
   {
     method: "GET",
@@ -30,6 +31,12 @@ const routes = [
     method: "POST",
     url: "/api/login-user/facebook",
     handler: methods.LoginUserFacebook,
+  },
+
+  {
+    method: "GET",
+    url: "/api/get-all-menus",
+    handler: menu.menuFunctions.GetAllItems,
   },
 ];
 module.exports = routes;

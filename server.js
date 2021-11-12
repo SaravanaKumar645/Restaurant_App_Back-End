@@ -1,7 +1,8 @@
 const fastify = require("fastify")();
 const connectMongo = require("./config/dbConfig");
 const routes = require("./routes/authRoutes");
-
+const routesOrder = require("./routes/orderRoutes");
+const routesCart = require("./routes/cartRoutes");
 //HEROKU LOGGING :heroku logs -a zoho-invoice-server --tail
 //fastify plugins
 fastify.register(require("fastify-cookie"));
@@ -18,6 +19,12 @@ connectMongo.connectDB();
 //Configure routes for fastify
 const routePlugin = async () => {
   routes.forEach(async (route) => {
+    await fastify.route(route);
+  });
+  routesOrder.forEach(async (route) => {
+    await fastify.route(route);
+  });
+  routesCart.forEach(async (route) => {
     await fastify.route(route);
   });
 };
