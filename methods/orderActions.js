@@ -2,12 +2,13 @@ const Orders = require("../models/orders");
 
 var orderFunctions = {
   CreateOrder: async (req, res) => {
+    const orderDetails = req.body.orderedItem;
     var newOrder = new Orders({
-      email: req.body.email,
-      item_name: req.body.item_name,
-      item_id: req.body.item_id,
+      email: orderDetails.email,
+      item_name: orderDetails.item_name,
+      item_id: orderDetails._id,
       quantity: req.body.quantity,
-      item_details: req.body.details,
+      item_details: orderDetails,
     });
     try {
       const order = await newOrder.save();

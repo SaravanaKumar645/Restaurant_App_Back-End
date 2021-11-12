@@ -13,6 +13,7 @@ var cartSchema = new schema({
   item_id: {
     type: String,
     required: true,
+    unique: true,
   },
   item_details: {
     type: Object,
