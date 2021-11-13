@@ -3,7 +3,7 @@ const connectMongo = require("./config/dbConfig");
 const routes = require("./routes/authRoutes");
 const routesOrder = require("./routes/orderRoutes");
 const routesCart = require("./routes/cartRoutes");
-//HEROKU LOGGING :heroku logs -a zoho-invoice-server --tail
+// /HEROKU LOGGING :heroku logs -a restaurant-web-server --tail
 //fastify plugins
 fastify.register(require("fastify-cookie"));
 fastify.register(require("fastify-cors"), {

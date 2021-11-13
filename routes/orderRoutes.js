@@ -2,8 +2,8 @@ const orderMethods = require("../methods/orderActions");
 
 const routesOrder = [
   {
-    method: "GET",
-    url: "/api/get-user-orders",
+    method: "POST",
+    url: "/api/get-user-orders/:email",
     handler: orderMethods.orderFunctions.GetUserOrders,
   },
   {
@@ -14,13 +14,13 @@ const routesOrder = [
 
   {
     method: "POST",
-    url: "/api/cancel-orders",
+    url: "/api/cancel-orders/:id/:email",
     handler: orderMethods.orderFunctions.CancelOrder,
   },
 
   {
     method: "POST",
-    url: "/api/delete-orders",
+    url: "/api/delete-orders/:id/:email",
     handler: orderMethods.orderFunctions.RemoveOrder,
   },
 ];

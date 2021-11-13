@@ -64,7 +64,8 @@ var cartFunctions = {
   },
   FetchUserCart: async (req, res) => {
     try {
-      const carts = await Cart.find({ email: req.body.email });
+      console.log("hello        " + req.params.email);
+      const carts = await Cart.find({ email: req.params.email });
       console.log(carts);
       res.status(200).send({
         success: true,

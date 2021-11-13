@@ -28,7 +28,7 @@ var orderFunctions = {
   },
   GetUserOrders: async (req, res) => {
     try {
-      const orders = await Orders.find({ email: req.body.email });
+      const orders = await Orders.find({ email: req.params.email });
       console.log(orders);
       res.status(200).send({
         success: true,
@@ -47,10 +47,10 @@ var orderFunctions = {
     try {
       const order = await Orders.findOneAndUpdate(
         {
-          _id: req.body.id,
-          email: req.body.email,
+          _id: req.params.id,
+          email: req.params.email,
         },
-        { status: "cancelled" },
+        { delivery_status: "cancelled" },
         { new: true }
       );
 
@@ -71,15 +71,14 @@ var orderFunctions = {
   RemoveOrder: async (req, res) => {
     try {
       const order = await Orders.findOneAndDelete({
-        _id: req.body.id,
-        email: req.body.email,
+        _id: req.params.id,
+        email: req.params.email,
       });
       console.log(order);
       res.status(200).send({
         success: true,
-        msg: "Order Removed Successfully !",
+        msg: "Order Removed from the List !",
       });
-      s;
     } catch (err) {
       console.log(err);
       res.status(408).send({

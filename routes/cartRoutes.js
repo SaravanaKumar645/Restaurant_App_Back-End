@@ -2,8 +2,8 @@ const cartMethods = require("../methods/cartActions");
 
 const routesCart = [
   {
-    method: "GET",
-    url: "/api/get-cart-items",
+    method: "POST",
+    url: "/api/get-cart-items/:email",
     handler: cartMethods.cartFunctions.FetchUserCart,
   },
   {
